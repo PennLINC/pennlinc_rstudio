@@ -1,0 +1,27 @@
+Bootstrap: docker
+From: rocker/tidyverse:3.6.1
+
+%labels
+  Author PennLINC
+  Version 0.0.1
+
+%startscript
+  
+  echo "Container was created $NOW"
+  echo "Arguments received: $*"
+  
+  if [ $# -eq 0 ]
+    then
+      echo "No arguments supplied -- please pass your PORT NUMBER as the last argument"
+      exit 1
+  fi
+  export R_PORT=${R_PORT:-$1}
+  export R_ADDRESS=${R_ADDRESS:-"0.0.0.0"}
+
+  rserver --www-port $R_PORT --www-address $R_ADDRESS --auth-none=0 --auth-pam-helper-path=pam-helper &
+  
+  if [ $? -eq 0 ]; then
+    echo "server started OK"
+  else
+    echo "server FAILED to start"
+  fi
