@@ -5,7 +5,7 @@ INPUTIMAGE=$1
 PORT=$2
 CURRENTIMAGE=docker://rocker/tidyverse:3.6.1
 
-set -x
+#set -x
 
 if [ $# -eq 0 ]
     then
