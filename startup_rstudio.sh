@@ -50,6 +50,10 @@ if [ ! -f $HOME/tmp/rstudio-server/secure-cookie-key ]; then
     mkdir -p tmp/var/{lib,run}
 fi
 
+if [ ! -d $HOME/tmp/var ]; then
+    mkdir -p tmp/var/{lib,run}
+fi
+
 ## start the instance
 export SINGULARITYENV_USER=$USER
 read -s -p "Enter a password to use with your RStudio instance: " rstudio_pw
