@@ -3,9 +3,8 @@
 DEBUG=true
 INPUTIMAGE=$1
 PORT=$2
-CURRENTIMAGE=docker://rocker/tidyverse:3.6.1
+CURRENTIMAGE=shub://nickjer/singularity-rstudio
 
-#set -x
 
 if [ $# -eq 0 ]
     then
@@ -32,7 +31,7 @@ if [ ! $? -eq 0 ]; then
   printf "\nERROR:  This doesn't seem to be a singularity image with rserver installed!
 Please download the current recommended singularity image with:
   
-  singularity pull $CURRENTIMAGE
+  singularity pull --name singularity-rstudio.simg $CURRENTIMAGE
 
 "
   exit 1
@@ -54,20 +53,6 @@ if [ ! -d $HOME/tmp/var ]; then
 fi
 
 ## start the instance
-#export SINGULARITYENV_USER=$USER
-#read -s -p "Enter a password to use with your RStudio instance: " rstudio_pw
-#export SINGULARITYENV_PASSWORD=$rstudio_pw
-#echo
-
-#debug
-#if [ "$DEBUG" = true ] ; then
-#    echo
-#    echo Username: $SINGULARITYENV_USER
-#    echo Password: $SINGULARITYENV_PASSWORD
-#    echo
-#fi
-
-# ready to run
 
 ## this command starts an rserver in the background
 singularity instance start $INPUTIMAGE rstudio-singularity
@@ -78,8 +63,6 @@ singularity instance start $INPUTIMAGE rstudio-singularity
     # to add more, just add:
     # -B path/local:path/in/container
 
-
-# now, launch rstudio service
 
 if [ $? -eq 255 ]; then
 
@@ -92,7 +75,7 @@ You can probably still access rstudio
   #exit 1
 fi
 
-# try run the rserver
+## now, launch rstudio service
 singularity run \
   -B $HOME/tmp/var/lib:/var/lib/rstudio-server \
   -B $HOME/tmp/var/run/:/var/run/rstudio-server \
