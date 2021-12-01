@@ -54,18 +54,18 @@ if [ ! -d $HOME/tmp/var ]; then
 fi
 
 ## start the instance
-export SINGULARITYENV_USER=$USER
-read -s -p "Enter a password to use with your RStudio instance: " rstudio_pw
-export SINGULARITYENV_PASSWORD=$rstudio_pw
-echo
+#export SINGULARITYENV_USER=$USER
+#read -s -p "Enter a password to use with your RStudio instance: " rstudio_pw
+#export SINGULARITYENV_PASSWORD=$rstudio_pw
+#echo
 
 #debug
-if [ "$DEBUG" = true ] ; then
-    echo
-    echo Username: $SINGULARITYENV_USER
-    echo Password: $SINGULARITYENV_PASSWORD
-    echo
-fi
+#if [ "$DEBUG" = true ] ; then
+#    echo
+#    echo Username: $SINGULARITYENV_USER
+#    echo Password: $SINGULARITYENV_PASSWORD
+#    echo
+#fi
 
 # ready to run
 
