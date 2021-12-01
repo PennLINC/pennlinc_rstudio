@@ -10,10 +10,10 @@ Usage:
 ssh -L localhost:<PORTNUMBER>:localhost:<PORTNUMBER> username@clusterip
 ```
 
-1. Get a compatible singularity image with `rserver`
+1. Get a compatible singularity image with `rserver` installed
 
 ```shell
-singularity pull docker://rocker/tidyverse:3.6.1
+singularity pull --name singularity-rstudio.simg shub://nickjer/singularity-rstudio
 ```
 
 2. Clone this repository in an appropriate location in your project
