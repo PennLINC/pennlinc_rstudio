@@ -5,6 +5,7 @@ INPUTIMAGE=$1
 PORT=$2
 CURRENTIMAGE=docker://rocker/tidyverse:3.6.1
 
+set -e
 
 if [ $# -eq 0 ]
     then
@@ -45,7 +46,7 @@ if [ ! -f $HOME/tmp/rstudio-server/secure-cookie-key ]; then
 
     mkdir -p $HOME/tmp/rstudio-server
     uuidgen > $HOME/tmp/rstudio-server/secure-cookie-key
-    chmod 600 $TMPDIR/tmp/rstudio-server/secure-cookie-key
+    chmod 600 $HOME/tmp/rstudio-server/secure-cookie-key
     mkdir -p tmp/var/{lib,run}
 fi
 
