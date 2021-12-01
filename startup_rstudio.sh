@@ -47,11 +47,10 @@ if [ ! -f $HOME/tmp/rstudio-server/secure-cookie-key ]; then
     mkdir -p $HOME/tmp/rstudio-server
     uuidgen > $HOME/tmp/rstudio-server/secure-cookie-key
     chmod 600 $HOME/tmp/rstudio-server/secure-cookie-key
-    mkdir -p tmp/var/{lib,run}
 fi
 
 if [ ! -d $HOME/tmp/var ]; then
-    mkdir -p tmp/var/{lib,run}
+    mkdir -p $HOME/tmp/var/{lib,run}
 fi
 
 ## start the instance
