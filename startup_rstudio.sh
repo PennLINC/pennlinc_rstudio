@@ -80,6 +80,7 @@ singularity run \
   -B $HOME/tmp/var/lib:/var/lib/rstudio-server \
   -B $HOME/tmp/var/run/:/var/run/rstudio-server \
   -B $HOME/tmp:/tmp \
+  -B /run/dbus/system_bus_socket:/run/dbus/system_bus_socket \
   --app rserver $INPUTIMAGE --www-port=$PORT &
     # binds are set to temp dir
     # and the home dir of the user by default
