@@ -28,9 +28,10 @@ singularity pull --name singularity-rstudio.simg shub://nickjer/singularity-rstu
 git clone https://github.com/PennLINC/pennlinc_rstudio.git
 ```
 
-3. Run the script with your image and port number as input
+3. Go to the directory and run the script with your image and port number as input
 
 ```shell
+cd pennlinc_rstudio
 ./startup_rstudio.sh <PATH/TO/SINGULARITY/IMAGE.simg> <PORTNUMBER> 
 ```
 
