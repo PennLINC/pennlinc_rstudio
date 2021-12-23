@@ -28,6 +28,12 @@ git clone https://github.com/PennLINC/pennlinc_rstudio.git
 ./startup_rstudio.sh <PATH/TO/SINGULARITY/IMAGE.simg> <PORTNUMBER> 
 ```
 
+4. Visit this address in a web browser:
+
+```
+localhost:<PORTNUMBER>
+```
+
 By default, it uses the `rocker:tidyverse` base image (we will install neuroimaging packages in future).
 
 Side effects:
