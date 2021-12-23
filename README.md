@@ -10,6 +10,12 @@ Usage:
 ssh -L localhost:<PORTNUMBER>:localhost:<PORTNUMBER> username@clusterip
 ```
 
+If you're on PMACS, please make sure to log in *twice*; once onto `sciget` (as above), and then once more onto the singularity enabled node:
+
+```shell
+ssh -L localhost:<PORTNUMBER>:localhost:<PORTNUMBER> singularity01
+```
+
 1. Get a compatible singularity image with `rserver` installed
 
 ```shell
